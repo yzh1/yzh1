@@ -1,0 +1,137 @@
+#!/usr/bin/perl
+
+# SCHEMA supports the following keys: item, cat, begin_cat, end_cat,
+#                                     exit, raw, sep, obgenmenu
+
+# Modified by the Manjaro Team, 16th March 2013.
+# Note: ~/.xinitrc commands will have been used to update the absolute paths
+# used in this schema.
+
+=for comment
+
+item: add an item into the menu
+{item => ["command", "label", "icon"]}
+
+cat: add a category into the menu
+{cat => ["name", "label", "icon"]}
+
+begin_cat: begin of a category
+{begin_cat => ["name", "icon"]}
+
+end_cat: end of a category
+{end_cat => undef}
+
+sep: menu line separator
+{sep => undef} or {sep => "label"}
+
+exit: default "Exit" action
+{exit => ["label", "icon"]}
+
+raw: any valid Openbox XML string
+{raw => q(xml string)},
+
+obgenmenu: category provided by obmenu-generator
+{obgenmenu => "label"}
+
+scripts: executable scripts from a directory
+{scripts => ["/my/dir", BOOL, "icon"]}
+BOOL - can be either true or false (1 or 0)
+0 == open the script in background
+1 == open the script in a new terminal
+
+wine_apps: windows applications installed via wine
+{wine_apps => ["label", "icon"]}
+
+=cut
+
+# NOTE:
+#    * Keys and values are case sensitive. Keep all keys lowercase.
+#    * ICON can be a either a direct path to a icon or a valid icon name
+#    * By default, category names are case insensitive. (e.g.: X-XFCE == x_xfce)
+
+require '/home/z/.config/obmenu-generator/config.pl';
+
+our $SCHEMA = [
+#             COMMAND                         LABEL                          ICON
+ {item => ['/usr/bin/chromium --allow-running-insecure-content --user-data-dir="/home/z/桌面/chromium1" --disk-cache-dir="/tmp/chromium-cache" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium-browser2.png']},
+# {item => ['/usr/bin/alsi',                      'sunflower','sunflower']},
+ #{item => ['sudo /usr/bin/chromium --allow-running-insecure-content --user-data-dir="/run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/chromium1" --disk-cache-dir="/tmp/chromium-cache" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium-browser2.png']},
+ #{item => ['sudo /usr/bin/chromium --allow-running-insecure-content --user-data-dir="/run/media/z/55533774-c55d-451a-8b65-b1851778bc81/chromium1" --disk-cache-dir="/tmp/chromium" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium-browser2.png']},
+        {item => ['sudo /usr/bin/xfce4-taskmanager',                      'xfce4-taskmanager','utilities-system-monitor']},
+   {item => ['sudo /usr/bin/pcmanfm',                      'Pcmanfm','system-file-manager']},
+   #{item => ['/opt/google/chrome/google-chrome --user-data-dir="/home/z/.config/google-chrome" --disk-cache-dir="/tmp/chrome" --disable-java --disk-cache-size=262144000 %U',                    'Chrome','/usr/share/icons/Faenza/apps/16/google-chrome.png']},
+   # {item => ['sudo /opt/google/chrome/google-chrome --user-data-dir="/run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/chromium1" --disk-cache-dir="/run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/google-chrome-cache" --disable-java --disk-cache-size=262144000 %U',                    'Chrome','/usr/share/icons/Faenza/apps/16/google-chrome2.png']},
+   {item => ['sudo /usr/bin/sakura',                    'Sakura','utilities-terminal']},
+      #{item => ['sudo /usr/bin/chromium --user-data-dir="/home/z/.config/chromium" --disk-cache-dir="/tmp/chromium" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium.png']},
+   {item => ['sudo /usr/bin/gnome-screenshot --interactive', 'Screenshot','gnome-screenshot']},
+      {item => ['sudo /usr/bin/geany', 'geany','geany']},
+      {item => ['sudo /usr/bin/pamac-manager', 'Add/Remove Software','/usr/share/icons/Faenza/apps/16/system-software-install.png']},
+     {item => ['sudo bleachbit',                      'bleachbit','bleachbit']},
+     {item => ['sudo python3 /usr/share/goagent/local/proxy.py',                      'proxy.py','/usr/share/goagent/local/proxy.py']},
+          #{item => ['sudo python2 /opt/goagent/local/goagent-gtk.py',                      'goagent-gtk.py','/usr/share/goagent/local/proxy.py']},
+      #{item => ['/usr/bin/chromium --user-data-dir="/home/z/.config/chromium" --disk-cache-dir="/tmp/chromium" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium.png']},
+ #{item => ['sudo /usr/bin/chromium --user-data-dir="/run/media/z/55533774-c55d-451a-8b65-b1851778bc81/chromium" --disk-cache-dir="/tmp/chromium" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium.png']},
+         #{item => ['sudo sunflower',                      'sunflower','sunflower']},
+         #{item => ['sudo /usr/bin/chromium --user-data-dir="/run/media/z/55533774-c55d-451a-8b65-b1851778bc81/chromium" --disk-cache-dir="/run/media/z/55533774-c55d-451a-8b65-b1851778bc81/chromium-cache" --disable-java --disk-cache-size=262144000 %U',                    'Chromium','/usr/share/icons/Faenza/apps/16/chromium.png']},
+          {item => ['sudo /usr/bin/opera-next %U',                      'Opera Next','opera-next-browser']},
+        {item => ['sudo /run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/chrome/google-chrome --user-data-dir="/run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/chromium1" --disk-cache-dir="/run/media/z/46176fec-635b-44a8-9210-cf14c6d9d04c/google-chrome-cache" --disable-java --disk-cache-size=262144000 %U',                    'Chrome','/usr/share/icons/Faenza/apps/16/google-chrome2.png']},
+          
+    {sep => undef},
+
+    #          NAME            LABEL                ICON
+    {cat => ['utility',     'Accessories', 'applications-utilities']},
+    {cat => ['development', 'Development', 'applications-development']},
+    {cat => ['education',   'Education',   'applications-science']},
+    {cat => ['game',        'Games',       'applications-games']},
+    {cat => ['graphics',    'Graphics',    'applications-graphics']},
+    {cat => ['audiovideo',  'Multimedia',  'applications-multimedia']},
+    {cat => ['network',     'Network',     'applications-internet']},
+    {cat => ['office',      'Office',      'applications-office']},
+    {cat => ['settings',    'Settings',    'applications-accessories']},
+
+## Custom "Advanced Menu"
+
+   {begin_cat => ['Advanced Settings',  'gnome-settings']},
+   {item => ['geany -m ~/.config/compton.conf','Compton Compositor','geany']},
+   {item => ['geany -m ~/.conkyrc','Conky RC','geany']},
+   {item => ['geany -m ~/.config/tint2/tint2rc','Tint2 Panel','geany']},
+   {begin_cat => ['Obmenu-Generator', '/usr/share/icons/Faenza/apps/48/menu-editor.png']},
+                {item => ['geany -m ~/.config/obmenu-generator/schema.pl','Pipe Menu Schema','geany']},
+                {item => ['geany -m ~/.config/obmenu-generator/config.pl','Pipe Menu Config','geany']},
+                {item => ['obmenu-generator -d','Refresh Icon Set','/usr/share/icons/logo5.png']},
+   {end_cat   => undef},
+   {begin_cat => ['Openbox',  'openbox']},
+                {item => ['openbox --reconfigure','Reconfigure Openbox','openbox']},
+                {item => ['geany -m ~/.config/openbox/autostart','Openbox Autostart','geany']},
+                {item => ['geany -m ~/.config/openbox/rc.xml','Openbox RC','geany']},
+                {item => ['geany -m ~/.config/openbox/menu.xml','Openbox Menu','geany']},
+                {item => ['gksu geany /etc/oblogout.conf','Openbox Logout','geany']},
+   {end_cat   => undef},
+   {begin_cat => ['Pacman / Servers', '/usr/share/icons/Faenza/apps/48/package-manager-icon.png']},
+                {item => ['gksu geany /etc/pacman.conf','Pacman Config','geany']},
+                {item => ['gksu geany /etc/pacman.d/mirrorlist','Pacman Mirrorlist','geany']},
+                {item => ['lxterminal -e sudo /home/carl/fastestservers.sh','Find Fastest Server','lxterminal']},
+   {end_cat   => undef},
+   {end_cat   => undef},
+
+## Back to standard pipe-menu
+
+   {cat => ['system',      'System',      'applications-system']},
+   {sep => undef},
+
+
+## Use Oblogout script instead of simple exit command
+
+
+   {item => ['oblogout',        'Logout',      'exit']},
+
+    #{cat => ['qt',          'QT Applications',    'qtlogo']},
+    #{cat => ['gtk',         'GTK Applications',   'gnome-applications']},
+    #{cat => ['x_xfce',      'XFCE Applications',  'applications-other']},
+    #{cat => ['gnome',       'GNOME Applications', 'gnome-applications']},
+    #{cat => ['consoleonly', 'CLI Applications',   'applications-utilities']},
+
+    #                  LABEL             ICON
+    #{wine_apps => ['Wine apps', 'applications-other']},
+
+]
