@@ -1,7 +1,11 @@
 yzh1
 ====
-https://wz304349013.github.io/yzh1
+http://yzh1.github.io/z/.html
 
-https://wz304349013.github.io/yzh1/sv.html
+http://yzh1.github.io/z/
 
-http://wz304349013.github.io/yzh1/ja.html
+#https://wz304349013.github.io/yzh1
+
+#https://wz304349013.github.io/yzh1/sv.html
+
+#http://wz304349013.github.io/yzh1/ja.html
