@@ -1,0 +1,46 @@
+
+
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--mainpad1?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=486></iframe>
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--schema.pl?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=786></iframe>
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--Local_State?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=786></iframe>
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--z?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=786></iframe>
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--z?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=786></iframe>
+<iframe name='embed'src='https://etherpad.com.ar/p/--ø&#12395;öü&#30340;ù11--z?showControls=false&showChat=false&useMonospaceFont=ture'width=1406 height=786></iframe>
+
+index.html
+
+
+pacaur -y chromium-browser-bin --asroot
+
+pacaur -y google-chrome-dev --asroot
+
+周六吃酒 －6.12
+
+aa
+
+sudo pacman-mirrors -g -b unstable
+
+sudo pacman -S yaourt base-devel sakura xfce4-taskmanager dnsutils mousepad pcmanfm  goagent bleachbit scim-pinyin scim-tables gedit
+
+yaourt pacaur
+
+pacaur -y chromium-browser-bin aliedit google-chrome-dev namebench chromium-pepper-flash xarchiver qbittorrent sunflower alsi --asroot
+
+
+sudo pacman -Rs gparted xterm thunar xnoise xscreensaver evince qupzilla libreoffice-installer synapse conky galculator htop flashplugin leafpad file-roller parcellite lxterminal heirloom-mailx
+
+
+
+
+
+
+?chrome - chromium share der cache
+
+HSTS:
+www.blogger.com
+
+support.google.com
+webcache.googleusercontent.com
+
+
+
